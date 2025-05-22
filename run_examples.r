@@ -51,7 +51,7 @@ class(tb)  # "tbl_df" "tbl" "data.frame"
 # ========================
 
 # Ver los primeros registros del conjunto de datos
-print(gapminder)
+.
 
 # Ver estructura con glimpse (dplyr)
 glimpse(gapminder)
@@ -111,6 +111,24 @@ write.csv(gapminder, "gapminder.csv", row.names = FALSE)
 gapminder_leido <- read.csv("gapminder.csv")
 
 # 8. Verificar el tipo de datos en de gapminder_leido. Convertir a tibble
-# ...
+
+gapminder_df <- as.data.frame(gapminder)
+
 # Ingresa tu código aquí
 # ...
+
+table(gapminder$continent)
+
+table(gapminder$country)
+
+unique(gapminder$continent) # mostrar cuantos continentes
+length(unique(gapminder$continent)) # longitud 
+
+
+gapminder%>% group_by(continent)%>%
+  sumarise(
+    paises = length((unique(country)))
+  )
+
+
+
